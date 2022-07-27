@@ -15,7 +15,7 @@ namespace ExoApi.Repositories
 
         public void Atualizar(int id, Usuario usuario)
         {
-            Usuario usuarioEncontrado = _context.Usuarios.Find(id);
+            Usuario usuarioEncontrado = _context.Usuario.Find(id);
 
             if (usuarioEncontrado != null)
             {
@@ -24,36 +24,36 @@ namespace ExoApi.Repositories
                 usuarioEncontrado.Tipo = usuario.Tipo;
             }
 
-            _context.Usuarios.Update(usuarioEncontrado);
+            _context.Usuario.Update(usuarioEncontrado);
             _context.SaveChanges();
         }
 
         public Usuario BuscarPorId(int id)
         {
-            return _context.Usuarios.Find(id);
+            return _context.Usuario.Find(id);
         }
 
         public void Cadastrar(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
+            _context.Usuario.Add(usuario);
             _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            Usuario usuarioEncontrado = _context.Usuarios.Find(id);
-            _context.Usuarios.Remove(usuarioEncontrado);
+            Usuario usuarioEncontrado = _context.Usuario.Find(id);
+            _context.Usuario.Remove(usuarioEncontrado);
             _context.SaveChanges();
         }
 
         public List<Usuario> Listar()
         {
-            return _context.Usuarios.ToList();
+            return _context.Usuario.ToList();
         }
 
         public Usuario Login(string email, string senha)
         {
-            return _context.Usuarios.First(u => u.Email == email && u.Senha == senha);
+            return _context.Usuario.First(u => u.Email == email && u.Senha == senha);
         }
     }
 }

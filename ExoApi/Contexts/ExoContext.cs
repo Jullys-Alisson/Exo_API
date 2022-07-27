@@ -18,9 +18,9 @@ namespace ExoApi.Contexts
                 optionsBuilder.UseSqlServer("Data Source = DESKTOP-VQ81GD5\\SQLEXPRESS; initial catalog = ExoApi; Integrated Security = true");
             }
         }
-        public DbSet<Projeto> Projetos { get; set; }
+        public DbSet<Projeto> Projeto { get; set; }
 
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
 
     }

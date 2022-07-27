@@ -14,34 +14,34 @@ namespace ExoApi.Repositories
 
         public List<Projeto> Listar()
         {
-            return _context.Projetos.ToList();
+            return _context.Projeto.ToList();
         }
 
         public Projeto BuscarPorId(int id)
         {
-            return _context.Projetos.Find(id);
+            return _context.Projeto.Find(id);
         }
 
         public void Cadastrar(Projeto projeto)
         {
-            _context.Projetos.Add(projeto);
+            _context.Projeto.Add(projeto);
             _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            Projeto projeto = _context.Projetos.Find(id);
+            Projeto projeto = _context.Projeto.Find(id);
 
             if (projeto != null)
             {
-                _context.Projetos.Remove(projeto);
+                _context.Projeto.Remove(projeto);
                 _context.SaveChanges();
             }
         }
 
         public void Atualizar(int id, Projeto projeto)
         {
-            Projeto projetoBuscado = _context.Projetos.Find(id);
+            Projeto projetoBuscado = _context.Projeto.Find(id);
 
             if (projetoBuscado != null)
             {
@@ -50,7 +50,7 @@ namespace ExoApi.Repositories
                 projetoBuscado.DataProjeto = projeto.DataProjeto;
                 projetoBuscado.RequisitosProjeto = projeto.RequisitosProjeto;
             }
-            _context.Projetos.Update(projetoBuscado);
+            _context.Projeto.Update(projetoBuscado);
             _context.SaveChanges();
         }
     }

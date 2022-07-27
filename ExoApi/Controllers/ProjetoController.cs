@@ -9,7 +9,6 @@ namespace ExoApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProjetoController : ControllerBase
     {
         private readonly ProjetoRepository _projetoRepository;
@@ -31,7 +30,6 @@ namespace ExoApi.Controllers
             }
         }
 
-        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
 
         public ActionResult BuscarPorId(int id)
